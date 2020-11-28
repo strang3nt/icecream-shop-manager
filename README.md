@@ -1,4 +1,6 @@
 # icecream-shop-manager
+[![Build Status](https://travis-ci.com/strang3nt/icecream-shop-manager.svg?branch=main)](https://travis-ci.com/strang3nt/icecream-shop-manager)
+[![Coverage Status](https://coveralls.io/repos/github/strang3nt/icecream-shop-manager/badge.svg?branch=main)](https://coveralls.io/github/strang3nt/icecream-shop-manager?branch=main)
 
 Questa repository contiene l'assignment 2 dell'insegnamento Tecnologie Open-Source della laurea triennale in Informatica dell'Università di Padova. 
 
