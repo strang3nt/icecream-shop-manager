@@ -60,6 +60,20 @@ public class TakeAwayBillImplTest {
     }
 
     @Test
+    public void getOrderPrice_moreThan50EurosOfPuddingsAndIceCreams_calculate() {
+        List<MenuItem> check = Arrays.asList(
+            new MenuItem(MenuItem.itemType.Budini, "Biancaneve", 9.5),
+            new MenuItem(MenuItem.itemType.Gelati, "Pistacchio", 7.5),
+            new MenuItem(MenuItem.itemType.Gelati, "Banana Split", 5.5),
+            new MenuItem(MenuItem.itemType.Gelati, "Coppa Ananas", 6),
+            new MenuItem(MenuItem.itemType.Gelati, "Puffo", 11.5),
+            new MenuItem(MenuItem.itemType.Gelati, "50 euro di gelato", 50)
+        );
+
+        assertEquals(90*0.9, bill.getOrderPrice(check, customer), 0);
+    }
+
+    @Test
     public void cheapestIceCream_getCheapest_find() {
 
         MenuItem cocaCocoa = new MenuItem(MenuItem.itemType.Gelati, "CocaCocoa", 2.5);
@@ -89,5 +103,17 @@ public class TakeAwayBillImplTest {
         );
 
         assertEquals(2, bill.countItem(check, itemType.Budini));
+    }
+
+    @Test
+    public void totalGelatiAndBudini_itemsFed_getTotal() {
+        List<MenuItem> check = Arrays.asList(
+            new MenuItem(MenuItem.itemType.Bevande, "CocaCola", 2.5),
+            new MenuItem(MenuItem.itemType.Budini, "Biancaneve", 9.5),
+            new MenuItem(MenuItem.itemType.Gelati, "Pistacchio", 7.5),
+            new MenuItem(MenuItem.itemType.Gelati, "Banana Split", 5.5)
+        );
+
+        assertEquals(25, bill.getOrderPrice(check, customer), 0);
     }
 }

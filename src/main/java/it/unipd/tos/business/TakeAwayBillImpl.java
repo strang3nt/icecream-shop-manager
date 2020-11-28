@@ -24,6 +24,10 @@ public class TakeAwayBillImpl implements TakeAwayBill{
             check -= cheapestIceCream(itemsOrdered).getPrice()/2;
         }
 
+        if(totalGelatiAndBudini(itemsOrdered) > 50) {
+            check *= 0.9;
+        }
+
         return check;
     }
 
@@ -40,5 +44,17 @@ public class TakeAwayBillImpl implements TakeAwayBill{
             .filter(i -> i.getCategory() == itemType.Gelati)
             .min(Comparator.comparing(MenuItem::getPrice))
             .get();
+    }
+
+    double totalGelatiAndBudini(List<MenuItem> itemsOrdered) {
+        return itemsOrdered
+            .stream()
+            .filter(
+                i -> 
+                    i.getCategory() == itemType.Gelati || 
+                    i.getCategory() == itemType.Budini
+                )
+            .mapToDouble(i -> i.getPrice())
+            .sum();
     }
 }
