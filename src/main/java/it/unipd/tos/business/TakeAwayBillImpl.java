@@ -7,14 +7,16 @@ package it.unipd.tos.business;
 import java.util.Comparator;
 import java.util.List;
 
+import it.unipd.tos.business.exception.TakeAwayBillException;
 import it.unipd.tos.model.MenuItem;
 import it.unipd.tos.model.User;
 import it.unipd.tos.model.MenuItem.itemType;
 
-public class TakeAwayBillImpl implements TakeAwayBill{
+public class TakeAwayBillImpl implements TakeAwayBill {
 
     @Override
-    public double getOrderPrice(List<MenuItem> itemsOrdered, User user) {
+    public double getOrderPrice(List<MenuItem> itemsOrdered, User user) 
+    throws TakeAwayBillException{
         double check = itemsOrdered
             .stream()
             .mapToDouble((i) -> i.getPrice())
@@ -26,6 +28,10 @@ public class TakeAwayBillImpl implements TakeAwayBill{
 
         if(totalGelatiAndBudini(itemsOrdered) > 50) {
             check *= 0.9;
+        }
+
+        if(itemsOrdered.size() > 30) {
+            throw new TakeAwayBillException("Ordinati più di 30 elementi");
         }
 
         return check;
