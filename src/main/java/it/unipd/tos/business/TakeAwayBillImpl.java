@@ -34,6 +34,10 @@ public class TakeAwayBillImpl implements TakeAwayBill {
             throw new TakeAwayBillException("Ordinati più di 30 elementi");
         }
 
+        if(check < 10) {
+            check += 0.5;
+        }
+
         return check;
     }
 

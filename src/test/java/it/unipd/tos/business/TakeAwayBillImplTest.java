@@ -45,6 +45,15 @@ public class TakeAwayBillImplTest {
         @SuppressWarnings("unused")
         double value = bill.getOrderPrice(bigBill, customer);
     }
+
+    @Test
+    public void getOrderPrice_lessThan10Elements_calcolate() throws TakeAwayBillException{
+        List<MenuItem> smallBill = Arrays.asList(
+            new MenuItem(MenuItem.itemType.Gelati, "Pallina", 2.5));
+        
+        assertEquals(3, bill.getOrderPrice(smallBill, customer), 0);   
+    }
+
     @Test
     public void cheapestIceCream_getCheapest_find() {
         MenuItem panna = check.get(3);
