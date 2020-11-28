@@ -65,4 +65,10 @@ public class TakeAwayBillImplTest {
         assertEquals(1, bill.countItem(check, itemType.Budini));
     }
 
+    @Test
+    public void totalGelatiAndBudini_expectedBehaviour() {
+        assertEquals(93.5, bill.totalGelatiAndBudini(check), 0);
+    }
+
+
 }
