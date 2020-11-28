@@ -1,0 +1,14 @@
+////////////////////////////////////////////////////////////////////
+// [ALESSANDRO] [FLORI] [1186916]
+////////////////////////////////////////////////////////////////////
+
+package it.unipd.tos.business;
+
+import java.util.List;
+
+import it.unipd.tos.model.MenuItem;
+import it.unipd.tos.model.User;
+
+public interface TakeAwayBill {
+    double getOrderPrice(List<MenuItem> itemsOrdered, User user);
+}
