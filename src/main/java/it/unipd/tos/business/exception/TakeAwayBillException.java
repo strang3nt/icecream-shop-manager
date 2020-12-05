@@ -5,9 +5,7 @@
 package it.unipd.tos.business.exception;
 
 public class TakeAwayBillException extends Throwable{
-    /**
-     * Default generated serial
-     */
+
     private static final long serialVersionUID = 1L;
     private String error;
 
