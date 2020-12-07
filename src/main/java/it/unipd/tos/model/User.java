@@ -15,10 +15,6 @@ public class User {
         this.birthday = birthday;
     }
 
-    public User() {
-
-    }
-
     @Override
     public boolean equals(Object o) {
         User u = (User) o;
@@ -26,21 +22,11 @@ public class User {
             && u.completeName == this.completeName
             && u.birthday.equals(this.birthday);
     }
-
-    // public String getCompleteName() {
-    //     return this.completeName;
-    // }
-
-    // public LocalDate getBirthday() {
-    //     return this.birthday;
-    // }
     
     public boolean isAdult() {
         LocalDate now = LocalDate.now();
 
         return birthday.plusYears(18).equals(now)
             || birthday.plusYears(18).isBefore(now);
-        
-  
     } 
 }

@@ -131,6 +131,4 @@ public class TakeAwayBillImplTest {
         bill = new TakeAwayBillImpl();
     }
 
-
-
 }

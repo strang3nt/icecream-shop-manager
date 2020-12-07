@@ -22,16 +22,8 @@ public class MenuItem {
         this.price = price;
     }
 
-    public MenuItem() {
-
-    }
-
     public itemType getCategory() {
         return category;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public double getPrice() {

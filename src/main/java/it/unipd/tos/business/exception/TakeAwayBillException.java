@@ -12,10 +12,5 @@ public class TakeAwayBillException extends Throwable{
     public TakeAwayBillException(String error) {
         super(error);
     }
-
-    @Override
-    public String getMessage() {
-        return error;
-    }
     
 }
